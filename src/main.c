@@ -6,7 +6,7 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 15:12:56 by znicola           #+#    #+#             */
-/*   Updated: 2025/01/06 23:31:29 by znicola          ###   ########.fr       */
+/*   Updated: 2025/01/07 15:03:03 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void init_data( t_prgpar *data, char **argv)
 	}
 }
 
-static void	data_cleanup(t_prgpar *data)
+void	data_cleanup(t_prgpar *data)
 {
 	int i;
 	

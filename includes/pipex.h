@@ -6,7 +6,7 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:02:50 by znicola           #+#    #+#             */
-/*   Updated: 2025/01/06 23:31:36 by znicola          ###   ########.fr       */
+/*   Updated: 2025/01/07 15:03:40 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@
 
 typedef struct s_prgpar
 {
-	char	*infile;
-	char	*outfile;
+	int     infile;
+	int     outfile;
 	char	**cmd1;
 	char	**cmd2;
 }	t_prgpar;
+
+void    pipex(t_prgpar data, char **envp);
+void    data_cleanup(t_prgpar *data);
 
 #endif
