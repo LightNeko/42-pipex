@@ -6,13 +6,13 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 15:12:56 by znicola           #+#    #+#             */
-/*   Updated: 2025/01/07 15:03:03 by znicola          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:18:43 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static void init_data( t_prgpar *data, char **argv)
+static void	init_data(t_prgpar *data, char **argv)
 {
 	data->infile = open(argv[1], O_RDONLY);
 	if (data->infile == -1)
@@ -28,7 +28,7 @@ static void init_data( t_prgpar *data, char **argv)
 		exit(1);
 	}
 	data->cmd1 = ft_split(argv[2], ' ');
-	data->cmd2 = ft_split(argv[3], ' ');	
+	data->cmd2 = ft_split(argv[3], ' ');
 	if (!data->cmd1 || !data->cmd1[0] || !data->cmd2 || !data->cmd2[0])
 	{
 		perror("Invalid command");
@@ -40,21 +40,21 @@ static void init_data( t_prgpar *data, char **argv)
 
 void	data_cleanup(t_prgpar *data)
 {
-	int i;
-	
+	int	i;
+
 	close(data->infile);
 	close(data->outfile);
 	if (data->cmd1)
 	{
 		i = 0;
-		while(data->cmd1[i])
+		while (data->cmd1[i])
 			free(data->cmd1[i++]);
 		free(data->cmd1);
 	}
 	if (data->cmd2)
 	{
 		i = 0;
-		while(data->cmd2[i])
+		while (data->cmd2[i])
 			free(data->cmd2[i++]);
 		free(data->cmd2);
 	}
@@ -67,10 +67,10 @@ int	main(int argc, char **argv, char **envp)
 	if (argc != 5)
 	{
 		ft_printf("arguments are not 4\n");
-		return(1);
+		return (1);
 	}
 	init_data(&data, argv);
 	pipex(data, envp);
 	data_cleanup(&data);
-	return(0);
+	return (0);
 }
