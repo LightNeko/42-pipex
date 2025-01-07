@@ -6,7 +6,7 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:19:11 by znicola           #+#    #+#             */
-/*   Updated: 2025/01/07 19:22:18 by znicola          ###   ########.fr       */
+/*   Updated: 2025/01/07 19:40:01 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static pid_t	exec_cmd1(t_prgpar data, int *pipe_fd, char **envp)
 	pid_t	pid;
 	char	*path_env;
 
-	path_env = ft_strjoin("/usr/bin/", data.cmd1[0]);
 	pid = fork();
 	if (pid == -1)
 	{
@@ -27,6 +26,7 @@ static pid_t	exec_cmd1(t_prgpar data, int *pipe_fd, char **envp)
 	}
 	if (pid == 0)
 	{
+		path_env = ft_strjoin("/usr/bin/", data.cmd1[0]);
 		dup2(data.infile, STDIN_FILENO);
 		dup2(pipe_fd[1], STDOUT_FILENO);
 		close(data.infile);
@@ -46,7 +46,6 @@ static pid_t	exec_cmd2(t_prgpar data, int *pipe_fd, char **envp)
 	pid_t	pid;
 	char	*path_env;
 
-	path_env = ft_strjoin("/usr/bin/", data.cmd2[0]);
 	pid = fork();
 	if (pid == -1)
 	{
@@ -56,6 +55,7 @@ static pid_t	exec_cmd2(t_prgpar data, int *pipe_fd, char **envp)
 	}
 	if (pid == 0)
 	{
+		path_env = ft_strjoin("/usr/bin/", data.cmd2[0]);
 		dup2(pipe_fd[0], STDIN_FILENO);
 		dup2(data.outfile, STDOUT_FILENO);
 		close(data.infile);
