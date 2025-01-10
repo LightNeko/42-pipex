@@ -6,7 +6,7 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 15:12:56 by znicola           #+#    #+#             */
-/*   Updated: 2025/01/07 19:18:43 by znicola          ###   ########.fr       */
+/*   Updated: 2025/01/10 19:32:04 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	init_data(t_prgpar *data, char **argv)
 		close(data->infile);
 		exit(1);
 	}
-	data->cmd1 = ft_split(argv[2], ' ');
-	data->cmd2 = ft_split(argv[3], ' ');
+	data->cmd1 = ft_split_quotes(argv[2], ' ');
+	data->cmd2 = ft_split_quotes(argv[3], ' ');
 	if (!data->cmd1 || !data->cmd1[0] || !data->cmd2 || !data->cmd2[0])
 	{
 		perror("Invalid command");

@@ -6,7 +6,7 @@
 /*   By: znicola <znicola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:02:50 by znicola           #+#    #+#             */
-/*   Updated: 2025/01/07 19:27:27 by znicola          ###   ########.fr       */
+/*   Updated: 2025/01/10 18:06:18 by znicola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ typedef struct s_prgpar
 
 void	pipex(t_prgpar data, char **envp);
 void	data_cleanup(t_prgpar *data);
+char	**ft_split_quotes(const char *s, char c);
 
 #endif

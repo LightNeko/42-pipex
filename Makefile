@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wextra -Werror -Wall
 
 SRC_DIR = src
-SRCS = main.c pipex.c
+SRCS = main.c pipex.c ft_split_quotes.c
 
 OBJS = $(addprefix $(SRC_DIR)/, $(SRCS:.c=.o))
 
